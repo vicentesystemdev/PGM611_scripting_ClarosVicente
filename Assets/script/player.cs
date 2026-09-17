@@ -73,7 +73,7 @@ public class Enemigo
     
 
 }
-
+#region Mundo
 namespace herramientas {
         namespace calculos{
             using logica_de_jugador;
@@ -105,3 +105,4 @@ namespace vicente
     }
 }
 
+#endregion
