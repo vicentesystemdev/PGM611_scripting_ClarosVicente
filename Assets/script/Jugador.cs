@@ -46,6 +46,8 @@ namespace logica_de_jugador{
                 );
             }    
             animator.SetFloat("Velocidad", Mathf.Abs(movimiento));
+            animator.SetFloat("VelocidadVertical", rb.linearVelocity.y);
+            animator.SetBool("estaEnPiso", enSuelo);
             // Espacio = salto
             if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
             {
