@@ -68,7 +68,13 @@ namespace logica_de_jugador{
         {
             enSuelo = false;
         }
-
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.transform.CompareTag("abejita"))
+             {
+                Destroy(collision.gameObject);
+             }
+        }
     }
 }
 public class Enemigo 
