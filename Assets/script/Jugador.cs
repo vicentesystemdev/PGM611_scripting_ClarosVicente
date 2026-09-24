@@ -23,19 +23,7 @@ namespace logica_de_jugador{
         // Update is called once per frame
         void Update()
         {
-            movimiento = 0;
-
-            // A = atrás
-            if (Input.GetKey(KeyCode.A))
-            {
-                movimiento = -1;
-            }
-
-            // S = adelante
-            if (Input.GetKey(KeyCode.S))
-            {
-                movimiento = 1;
-            }
+            movimiento = Input.GetAxisRaw("Horizontal");
             // Girar personaje según dirección
             if (movimiento != 0)
             {
