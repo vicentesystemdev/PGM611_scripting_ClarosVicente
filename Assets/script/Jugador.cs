@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 namespace logica_de_jugador{
     public class Jugador : MonoBehaviour
     {
@@ -77,6 +77,12 @@ namespace logica_de_jugador{
                 Destroy(collision.gameObject);
                 cantAbejas++;
                 textoAbejas.text = "x " + cantAbejas;
+             }
+             if (collision.transform.CompareTag("puerquito"))
+            {
+                SceneManager.LoadScene(
+                    SceneManager.GetActiveScene().name
+                 );
              }
         }
     }
