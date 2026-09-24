@@ -84,7 +84,33 @@ namespace logica_de_jugador{
                     SceneManager.GetActiveScene().name
                  );
              }
+            
         }
+        // CARACOL: usa colisión normal
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.transform.CompareTag("caracol"))
+        {
+             foreach (ContactPoint2D contacto in collision.contacts)
+            {
+            // El jugador cayó encima del caracol
+                    if (contacto.normal.y > 0.5f && rb.linearVelocity.y <= 0)
+                {
+                 Destroy(collision.gameObject);
+
+                    // Pequeño rebote después del pisotón
+                      rb.linearVelocity = new Vector2(
+                     rb.linearVelocity.x,
+                     fuerzaSalto * 0.6f
+                    );
+
+                  break;
+                 }
+             }
+            }
+        }
+
+
     }
 }
 public class Enemigo 
