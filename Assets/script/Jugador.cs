@@ -3,17 +3,21 @@ using UnityEngine;
 namespace logica_de_jugador{
     public class Jugador : MonoBehaviour
     {
-        public float velocidad = 5f;
-        public float fuerzaSalto = 7f;
+        public float velocidad = 3f;
+        public float fuerzaSalto = 4.5f;
 
         private Rigidbody2D rb;
+        private Animator animator;
         private float movimiento;
         private bool enSuelo = false;
+
+        
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
                 rb = GetComponent<Rigidbody2D>();
+                animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
@@ -41,7 +45,9 @@ namespace logica_de_jugador{
                 transform.localScale.z
                 );
             }    
-
+            animator.SetFloat("Velocidad", Mathf.Abs(movimiento));
+            animator.SetFloat("VelocidadVertical", rb.linearVelocity.y);
+            animator.SetBool("estaEnPiso", enSuelo);
             // Espacio = salto
             if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
             {
