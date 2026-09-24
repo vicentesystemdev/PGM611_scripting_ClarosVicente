@@ -1,5 +1,7 @@
 using UnityEngine;
-namespace herramientas.conectividad {
+
+namespace herramientas.conectividad
+{
     public partial class herramientas
     {
         public int contador;
@@ -7,9 +9,7 @@ namespace herramientas.conectividad {
 
         public int calculoPuntaje()
         {
-            return vida*2;
-        }  
-    
+            return vida * 2;
+        }
     }
 }
-
