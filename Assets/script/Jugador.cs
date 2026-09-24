@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 namespace logica_de_jugador{
     public class Jugador : MonoBehaviour
@@ -10,7 +11,8 @@ namespace logica_de_jugador{
         private Animator animator;
         private float movimiento;
         private bool enSuelo = false;
-
+        private int cantAbejas = 0;
+        public TMP_Text textoAbejas;
         
         
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -73,6 +75,8 @@ namespace logica_de_jugador{
             if (collision.transform.CompareTag("abejita"))
              {
                 Destroy(collision.gameObject);
+                cantAbejas++;
+                textoAbejas.text = "x " + cantAbejas;
              }
         }
     }
