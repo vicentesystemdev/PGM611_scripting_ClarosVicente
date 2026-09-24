@@ -32,6 +32,15 @@ namespace logica_de_jugador{
             {
                 movimiento = 1;
             }
+            // Girar personaje según dirección
+            if (movimiento != 0)
+            {
+                transform.localScale = new Vector3(
+                Mathf.Sign(movimiento),
+                transform.localScale.y,
+                transform.localScale.z
+                );
+            }    
 
             // Espacio = salto
             if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
