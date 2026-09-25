@@ -33,7 +33,8 @@ Transform:
   m_LocalPosition: {x: 0.79629654, y: -0.1706439, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3859989755432945449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7678723949316687681
@@ -178,8 +179,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.065, y: 0.4}
-  m_Size: {x: 0.35, y: 0.47999996}
+  m_Offset: {x: 0, y: 0.4}
+  m_Size: {x: 0.25, y: 0.47999996}
   m_Direction: 0
 --- !u!114 &7270071986806714859
 MonoBehaviour:
@@ -195,3 +196,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::logica_de_jugador.Jugador
   velocidad: 3
   fuerzaSalto: 4
+  comprobadorPiso: {fileID: 3859989755432945449}
+  radioComprobadorPiso: 0.1
+  layerPiso:
+    serializedVersion: 2
+    m_Bits: 64
+  textoAbejas: {fileID: 0}
+--- !u!1 &5188478959528154420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3859989755432945449}
+  m_Layer: 0
+  m_Name: ComprobadorDePiso
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3859989755432945449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188478959528154420}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2886618622455994486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

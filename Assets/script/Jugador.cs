@@ -11,6 +11,10 @@ namespace logica_de_jugador{
         private Animator animator;
         private float movimiento;
         private bool enSuelo = false;
+
+        public Transform comprobadorPiso;
+        public float radioComprobadorPiso = 0.1f;
+        public LayerMask layerPiso;
         private int cantAbejas = 0;
         public TMP_Text textoAbejas;
         
@@ -39,7 +43,7 @@ namespace logica_de_jugador{
             animator.SetFloat("VelocidadVertical", rb.linearVelocity.y);
             animator.SetBool("estaEnPiso", enSuelo);
             // Espacio = salto
-            if (Input.GetKeyDown(KeyCode.Space) && enSuelo)
+            if (Input.GetButtonDown("Jump") && enSuelo)
             {
                 rb.linearVelocity = new Vector2(
                     rb.linearVelocity.x,
@@ -50,26 +54,17 @@ namespace logica_de_jugador{
         }
         void FixedUpdate()
         {
+            enSuelo = Physics2D.OverlapCircle(
+             comprobadorPiso.position,
+             radioComprobadorPiso,
+             layerPiso
+             ) != null;
             rb.linearVelocity = new Vector2(
                 movimiento * velocidad,
                 rb.linearVelocity.y
             );
         }
-        void OnCollisionStay2D(Collision2D collision)
-        {
-            foreach (ContactPoint2D contacto in collision.contacts)
-            {
-                if (contacto.normal.y > 0.5f)
-                {
-                    enSuelo = true;
-                }
-            }
-        }
-
-        void OnCollisionExit2D(Collision2D collision)
-        {
-            enSuelo = false;
-        }
+        
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.transform.CompareTag("abejita"))
